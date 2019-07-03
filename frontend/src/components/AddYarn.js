@@ -1,5 +1,4 @@
 import React from 'react';
-import Stash from './Stash';
 
 function NewYarn() {
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag';
-import Gravatar from 'react-gravatar'
 
 const YARNS_QUERY = gql`
   query {
@@ -25,7 +24,6 @@ function Stash() {
           <div>
             {data.yarns.map((yarn) => {
               return <div key={yarn.id}>
-                <Gravatar />
                 <div>
                   <div>{yarn.maker + " " + yarn.name}</div>
                 </div>
