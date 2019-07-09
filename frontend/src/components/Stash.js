@@ -10,6 +10,7 @@ const YARNS_QUERY = gql`
       name
       weight
       colorway
+      notes
     }
   }
 `;

@@ -5,6 +5,7 @@ module Types
     field :name, String, null: true
     field :weight, String, null: true
     field :colorway, String, null: true
+    field :notes, String, null:true
 
     def yarns_count
       object.yarns.size
