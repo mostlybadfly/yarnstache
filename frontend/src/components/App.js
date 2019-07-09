@@ -13,8 +13,6 @@ function App() {
             </li>
           </ul>
 
-          <hr />
-
           <Route exact path="/" component={Stash} />
           <Route path="/add-yarn" component={AddYarn} />
       </div>
