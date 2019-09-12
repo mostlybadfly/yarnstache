@@ -1,16 +1,25 @@
 import React from 'react';
-import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
-import {
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-} from '@material-ui/core';
+import gql from 'graphql-tag';
+import {Mutation} from 'react-apollo';
+import {FormControl, InputLabel, Input, Button} from '@material-ui/core';
 
 const CREATE_YARN = gql`
-mutation CreateYarn($maker: String!, $name: String!, $weight: String!, $colorway: String!, $notes: String!) {
-    createYarn(input: { maker: $maker, name: $name, weight: $weight, colorway: $colorway, notes: $notes }) {
+  mutation CreateYarn(
+    $maker: String!
+    $name: String!
+    $weight: String!
+    $colorway: String!
+    $notes: String!
+  ) {
+    createYarn(
+      input: {
+        maker: $maker
+        name: $name
+        weight: $weight
+        colorway: $colorway
+        notes: $notes
+      }
+    ) {
       yarn {
         id
         maker
@@ -32,13 +41,13 @@ class NewYarn extends React.Component {
       name: '',
       weight: '',
       colorway: '',
-      notes: '' ,
+      notes: '',
     };
   }
 
   onSubmit = (e, createYarn) => {
     e.preventDefault();
-    createYarn({ variables: this.state });
+    createYarn({variables: this.state});
     this.setState({
       maker: '',
       name: '',
@@ -88,14 +97,14 @@ class NewYarn extends React.Component {
               </FormControl>
               <FormControl>
                 <InputLabel>Colorway:</InputLabel>
-                <Input value={this.state.colorway} onChange={this.addColorway} />
+                <Input
+                  value={this.state.colorway}
+                  onChange={this.addColorway}
+                />
               </FormControl>
               <FormControl>
                 <InputLabel>Notes</InputLabel>
-                <Input
-                  value={this.state.notes}
-                  onChange={this.addNotes}
-                />
+                <Input value={this.state.notes} onChange={this.addNotes} />
               </FormControl>
               <Button type="submit">Add Yarn</Button>
             </form>
@@ -103,7 +112,7 @@ class NewYarn extends React.Component {
         </Mutation>
       </div>
     );
-  };
-};
+  }
+}
 
 export default NewYarn;
