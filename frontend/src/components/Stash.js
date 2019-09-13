@@ -3,7 +3,7 @@ import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
-import {Box, Button, Container} from '@material-ui/core';
+import {Box, Button, Grid, Container, Paper} from '@material-ui/core';
 
 const YARNS_QUERY = gql`
   query {
@@ -46,17 +46,19 @@ function Stash() {
           if (loading) return <div>Fetching..</div>;
           if (error) return <div>Error!</div>;
           return (
-            <div>
+            <Grid container spacing={2}>
               {data.yarns.map(yarn => {
                 return (
-                  <div key={yarn.id}>
-                    <div>
-                      <div>{yarn.maker + ' ' + yarn.name}</div>
-                    </div>
-                  </div>
+                  <Grid key={yarn.id} item>
+                    <Paper>
+                      <Link to="/">
+                        {yarn.maker + ' ' + yarn.name}
+                      </Link>
+                    </Paper>
+                  </Grid>
                 );
               })}
-            </div>
+            </Grid>
           );
         }}
       </Query>
