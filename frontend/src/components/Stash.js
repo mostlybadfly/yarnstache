@@ -51,7 +51,10 @@ function Stash() {
                 return (
                   <Grid key={yarn.id} item>
                     <Paper>
-                      <Link to="/">
+                      <Link to={{
+                        pathname: `yarn/${yarn.id}`,
+                        state: {yarn: yarn},
+                      }}>
                         {yarn.maker + ' ' + yarn.name}
                       </Link>
                     </Paper>
