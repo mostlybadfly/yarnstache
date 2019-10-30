@@ -1,6 +1,7 @@
 import React from 'react';
 import Stash from './Stash';
 import AddYarn from './AddYarn';
+import Yarn from './Yarn';
 import {makeStyles} from '@material-ui/core/styles';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {
@@ -57,6 +58,7 @@ function App() {
 
           <Route exact path="/stash" component={Stash} />
           <Route path="/add-yarn" component={AddYarn} />
+          <Route path="/yarn/:id" component={Yarn} />
         </div>
       </Router>
     </ThemeProvider>
